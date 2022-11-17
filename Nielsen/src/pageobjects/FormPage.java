@@ -2,8 +2,12 @@ package pageobjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.provar.core.testapi.annotations.*;
 
@@ -13,6 +17,55 @@ import com.provar.core.testapi.annotations.*;
 , connection="SurveyLink"
 		)             
 public class FormPage {
+
+	WebDriver driver;
+
+	public FormPage(WebDriver driver){
+		this.driver=driver;
+	}
+
+
+//	public void agreementScroll(String text){	
+//		JavascriptExecutor js = (JavascriptExecutor)driver;
+//		WebElement txt = driver.findElement(By.xpath("//span[contains(text(),'YOU INDICATE ACCEPTANCE BY SIGNING THIS AGREEMENT')]"));
+//		js.executeScript("arguments[0].scrollIntoView();", txt);
+//		//js.executeScript(“window.scrollBy(0,document.body.scrollHeight)”);
+//	}
+	
+	public void agreementScroll(String text){	
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement txt = driver.findElement(By.xpath("//span[contains(text(),'"+text+"')]"));
+		js.executeScript("arguments[0].scrollIntoView();", txt);
+		//js.executeScript(“window.scrollBy(0,document.body.scrollHeight)”);
+	}
+	
+
+	public void occupation(){
+		driver.findElement(By.xpath("//*[text()='Choose...']")).click();
+		WebElement element = driver.findElement(By.xpath("//*[@class='select2-container select2-container--classic select2-container--open']//span[2]//li[1]"));
+		element.click();
+	}
+	public void move_in_month(){
+		driver.findElement(By.xpath("//*[text()='Choose...']")).click();
+		WebElement element = driver.findElement(By.xpath("//*[@class='select2-container select2-container--classic select2-container--open']//span[2]//li[1]"));
+		element.click();
+	}
+	public void move_in_year(){
+		driver.findElement(By.xpath("//*[text()='Choose...']")).click();
+		WebElement element = driver.findElement(By.xpath("//*[@class='select2-container select2-container--classic select2-container--open']//span[2]//li[1]"));
+		element.click();
+	}
+	public void household_income_5k_usd(){
+		driver.findElement(By.xpath("//*[text()='Choose...']")).click();
+		WebElement element = driver.findElement(By.xpath("//*[@class='select2-container select2-container--classic select2-container--open']//span[2]//li[1]"));
+		element.click();
+	}
+	public void check_recipient_ind(){
+		driver.findElement(By.xpath("//*[text()='Choose...']")).click();
+		WebElement element = driver.findElement(By.xpath("//*[@class='select2-container select2-container--classic select2-container--open']//span[2]//li[1]"));
+		element.click();
+	}
+	
 
 
 	@TextType()
@@ -27,6 +80,7 @@ public class FormPage {
 	@TextType()
 	@FindBy(xpath = "//b[text()='Email']/../../../following-sibling::div//input")
 	public WebElement Email;
+	@PageWait.Field(timeoutSeconds = 10)
 	@TextType()
 	@FindBy(xpath = "//b[text()='Confirm Email']/../../../following-sibling::div//input")
 	public WebElement Confirm_Email;
@@ -112,12 +166,7 @@ public class FormPage {
 	@TextType()
 	@FindBy(xpath = "//div[@data-name='hours_per_week']//input")
 	public WebElement hours_per_week;
-	@TextType()
-	@FindBy(xpath = "//span[normalize-space(.)='Choose...']/span[normalize-space(.)='Choose...']/span[2]")
-	public WebElement occupation;
-	@TextType()
-	@FindBy(xpath = "//li[normalize-space(.)='Actor']")
-	public WebElement test;
+
 	@TextType()
 	@FindBy(xpath = "//div[@data-name='job_title']//input")
 	public WebElement job_title;
@@ -175,5 +224,54 @@ public class FormPage {
 	@TextType()
 	@FindBy(xpath = "//div[@data-name='privacy_consent_sign']//input")
 	public WebElement agreement_sign1;
+	@TextType()
+	@FindBy(xpath = "//div[@data-name='computer_count']//input")
+	public WebElement computer_count;
+	@TextType()
+	@FindBy(xpath = "//div[@data-name='grocery_freq_id']//input")
+	public WebElement grocery_freq_id;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='hh_soft_drink_ind']//input[@value='Yes']")
+	public WebElement soft_drink_ind;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='hh_bottled_water_ind']//input[@value='Yes']")
+	public WebElement bottled_water;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='hh_coffee_tea_ind']//input[@value='Yes']")
+	public WebElement coffee_tea;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='hh_table_wine_ind']//input[@value='Yes']")
+	public WebElement table_wine;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='hh_dog_ind']//input[@value='No']")
+	public WebElement dog;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='hh_cat_ind']//input[@value='No']")
+	public WebElement cat;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='own_rent']//input[@value='Rent']")
+	public WebElement own_rent;
+	@BooleanType()
+	@FindBy(xpath = "//div[@data-name='home_type_acs']//input[@value='Mobile home']")
+	public WebElement home_type;
+	@BooleanType()
+	@FindBy(xpath = "//input[@class='sv_q_radiogroup_control_item' and @value='$0 to $99,999']")
+	public WebElement householdIncome;
+	@BooleanType()
+	@FindBy(xpath = "//input[@class='sv_q_radiogroup_control_item' and @value='English Only']")
+	public WebElement comm_language;
+	@BooleanType()
+	@FindBy(xpath = "//*[@class='sv_qcbc']/div[1]//input")
+	public WebElement slot;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='COMPLETE']")
+	public WebElement cOMPLETE;
+	@ButtonType()
+	@FindBy(xpath = "//input[@name='yes_no']")
+	public WebElement alert_ok;
+	@TextType()
+	@FindBy(xpath = "//*[contains(text(),'Thank you for')]")
+	public WebElement thankYouMessage;
+
 
 }
