@@ -62,5 +62,8 @@ public class LoginPage {
 	@TextType()
 	@FindBy(xpath = "//div[@data-name='verify_access_code']//h5//b[2]")
 	public WebElement accessCode_txt;
+	@ButtonType()
+	@FindBy(xpath = "//button[normalize-space(.)='OK']")
+	public WebElement oK;
 			
 }
