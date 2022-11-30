@@ -38,7 +38,6 @@ public class FormPage {
 		js.executeScript("arguments[0].scrollIntoView();", txt);
 		//js.executeScript(“window.scrollBy(0,document.body.scrollHeight)”);
 	}
-	
 
 	public void occupation(){
 		driver.findElement(By.xpath("//*[text()='Choose...']")).click();

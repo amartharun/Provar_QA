@@ -17,6 +17,12 @@
             <connectionUrl secureStorageNodeId="072c4ac3-7257-4b26-ad1c-0aeb91482287" url="sf:user=amarthya619@provar.trialsbx1;password={password};environment=SANDBOX;lightningMode=true"/>
           </connectionUrls>
         </connection>
+        <connection id="fa63fb85-ff1a-4428-a948-65793d2857f0" name="Salesforce">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="cef89a60-b58f-4218-b691-5f1ea16a1b98" url="sf:user=krishna@netesenz.in.us.qa2;password={password};securityToken={securityToken};environment=SANDBOX;lightningMode=true"/>
+          </connectionUrls>
+        </connection>
       </connections>
     </connectionClass>
     <connectionClass name="ui">
@@ -25,6 +31,16 @@
           <summary/>
           <connectionUrls>
             <connectionUrl url="se:baseUrl=https://alpha.mediacommunity.nielsen.com/survey/login"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
+    <connectionClass name="google">
+      <connections>
+        <connection id="a5664d9b-d97d-451d-8c98-4b2426541b9b" name="gmail">
+          <summary/>
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="a1e4c086-f74d-42f9-9d39-70e73412b7a9" url="google:user=kvamsi484@gmail.com;password={password};authenticationType=PASSWORD"/>
           </connectionUrls>
         </connection>
       </connections>
