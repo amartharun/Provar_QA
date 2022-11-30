@@ -43,6 +43,16 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.bdd.Then" name="Then" testItemId="50" title="Then: I Click on Omni Channel tab">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">I Click on Omni Channel tab</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="51"/>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="17" title="On utilityBarItem page">
       <arguments>
         <argument id="uiConnectionName">
